@@ -38,11 +38,14 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         var ghost: GhostData
         ghost = self.caughtsGhosts[indexPath.row]
-        
         cell.image.image = UIImage(named: ghost.imageFileName ?? "heart")
         
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let journalPage = storyboard?.instantiateViewController(withIdentifier: "JornalPageViewController") as? JornalPageViewController
+    
+    }
     
 }

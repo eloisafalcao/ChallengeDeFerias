@@ -13,10 +13,14 @@ class GhostAnnotation: NSObject, MKAnnotation {
     
     var coordinate: CLLocationCoordinate2D
     var ghost: GhostData
-    
+ 
     init(coordinate: CLLocationCoordinate2D, ghost: GhostData) {
         self.coordinate = coordinate
         self.ghost = ghost
     }
 
+
+
+    
+    
 }

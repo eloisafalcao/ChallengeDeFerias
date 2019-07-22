@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7588A07622E577FF00BA12D4 /* JornalPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588A07522E577FF00BA12D4 /* JornalPageViewController.swift */; };
+		7588A07822E649AB00BA12D4 /* WinLoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588A07722E649AB00BA12D4 /* WinLoseViewController.swift */; };
 		75BFFAD422DFBD210095FB92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BFFAD322DFBD210095FB92 /* AppDelegate.swift */; };
 		75BFFAD622DFBD210095FB92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BFFAD522DFBD210095FB92 /* ViewController.swift */; };
 		75BFFAD922DFBD210095FB92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75BFFAD722DFBD210095FB92 /* Main.storyboard */; };
@@ -17,9 +19,12 @@
 		75BFFAED22DFF8280095FB92 /* Celula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BFFAEC22DFF8280095FB92 /* Celula.swift */; };
 		75BFFAEF22E002E10095FB92 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BFFAEE22E002E10095FB92 /* CoreDataHelper.swift */; };
 		75BFFAF122E019030095FB92 /* GhostAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BFFAF022E019030095FB92 /* GhostAnnotation.swift */; };
+		75BFFAF722E2E1DF0095FB92 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BFFAF622E2E1DF0095FB92 /* BattleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7588A07522E577FF00BA12D4 /* JornalPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JornalPageViewController.swift; sourceTree = "<group>"; };
+		7588A07722E649AB00BA12D4 /* WinLoseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinLoseViewController.swift; sourceTree = "<group>"; };
 		75BFFAD022DFBD210095FB92 /* GhostHunting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GhostHunting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75BFFAD322DFBD210095FB92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75BFFAD522DFBD210095FB92 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +39,7 @@
 		75BFFAEC22DFF8280095FB92 /* Celula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Celula.swift; sourceTree = "<group>"; };
 		75BFFAEE22E002E10095FB92 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		75BFFAF022E019030095FB92 /* GhostAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostAnnotation.swift; sourceTree = "<group>"; };
+		75BFFAF622E2E1DF0095FB92 /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,15 +76,18 @@
 			children = (
 				75BFFAD322DFBD210095FB92 /* AppDelegate.swift */,
 				75BFFAD522DFBD210095FB92 /* ViewController.swift */,
+				75BFFAF622E2E1DF0095FB92 /* BattleViewController.swift */,
+				7588A07722E649AB00BA12D4 /* WinLoseViewController.swift */,
 				75BFFAF022E019030095FB92 /* GhostAnnotation.swift */,
-				75BFFAD722DFBD210095FB92 /* Main.storyboard */,
 				75BFFAEC22DFF8280095FB92 /* Celula.swift */,
 				75BFFAE822DFD8E10095FB92 /* Journal.swift */,
+				7588A07522E577FF00BA12D4 /* JornalPageViewController.swift */,
+				75BFFAEE22E002E10095FB92 /* CoreDataHelper.swift */,
+				75BFFAD722DFBD210095FB92 /* Main.storyboard */,
 				75BFFADD22DFBD230095FB92 /* Assets.xcassets */,
 				75BFFADF22DFBD230095FB92 /* LaunchScreen.storyboard */,
 				75BFFAE222DFBD230095FB92 /* Info.plist */,
 				75BFFADA22DFBD210095FB92 /* GhostHunting.xcdatamodeld */,
-				75BFFAEE22E002E10095FB92 /* CoreDataHelper.swift */,
 			);
 			path = GhostHunting;
 			sourceTree = "<group>";
@@ -155,10 +164,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				75BFFAD622DFBD210095FB92 /* ViewController.swift in Sources */,
+				7588A07622E577FF00BA12D4 /* JornalPageViewController.swift in Sources */,
 				75BFFAEF22E002E10095FB92 /* CoreDataHelper.swift in Sources */,
 				75BFFADC22DFBD210095FB92 /* GhostHunting.xcdatamodeld in Sources */,
 				75BFFAED22DFF8280095FB92 /* Celula.swift in Sources */,
 				75BFFAD422DFBD210095FB92 /* AppDelegate.swift in Sources */,
+				75BFFAF722E2E1DF0095FB92 /* BattleViewController.swift in Sources */,
+				7588A07822E649AB00BA12D4 /* WinLoseViewController.swift in Sources */,
 				75BFFAE922DFD8E10095FB92 /* Journal.swift in Sources */,
 				75BFFAF122E019030095FB92 /* GhostAnnotation.swift in Sources */,
 			);
