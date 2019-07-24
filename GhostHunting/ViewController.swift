@@ -13,16 +13,18 @@ import CoreLocation
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
 
     @IBOutlet weak var mapView: MKMapView!
-    
     @IBOutlet weak var buttonCenter: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var journalButton: UIButton!
+    @IBOutlet weak var tooFarAlert: UIImageView!
     
     var ghostArray: [GhostData] = []
     var selectedGhost: GhostData?
     
     @IBAction func buttonCenterAction(_ sender: Any) {
         centerUserLocation()
+        tooFarAlert.isHidden = true
     }
-    
     
     var locationManager = CLLocationManager()
     
@@ -34,6 +36,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         checkAuthorizationStatus()
         addAnnotations()
         centerUserLocation()
+        pressedButtons()
+        tooFarAlert.isHidden = true
      
     }
     
@@ -60,7 +64,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     func centerUserLocation(){
             guard let coordinate = locationManager.location?.coordinate else {return}
-            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 400, longitudinalMeters: 400)
+            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
             self.mapView.setRegion(region, animated: true)
       
     }
@@ -69,6 +73,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if let vc =  segue.destination as? BattleViewController {
             vc.ghost = selectedGhost
         }
+    }
+    
+    func pressedButtons(){
+        settingsButton.setImage(UIImage(named: "pressedSettingButton"), for: .highlighted)
+        journalButton.setImage(UIImage(named: "pressedJournalButton"), for: .highlighted)
+        buttonCenter.setImage( UIImage(named: "pressedCenterButton"), for: .highlighted)
+        
     }
     
  
@@ -80,7 +91,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             return
         }
         
-        let region = MKCoordinateRegion(center: view.annotation!.coordinate, latitudinalMeters: 150, longitudinalMeters: 150)
+        let region = MKCoordinateRegion(center: view.annotation!.coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
         self.mapView.setRegion(region, animated: false)
    
        if let coordinate = locationManager.location?.coordinate {
@@ -93,10 +104,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
             
         } else {
+            tooFarAlert.isHidden = false
             print("2 far")
-            
         }
-        
         
         }
         
@@ -108,7 +118,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
 
         if annotation is MKUserLocation {
-            annotationView.image = UIImage(named: "heart")
+            annotationView.image = UIImage(named: "userLocation")
         } else {
             annotationView.image = UIImage(named: "pinGhost")
         }

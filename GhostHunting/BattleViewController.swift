@@ -92,6 +92,8 @@ class BattleViewController: UIViewController {
         if trap.frame.intersects(button.frame) {
             print("win game")
             self.performSegue(withIdentifier: "winSegue", sender: self)
+            self.ghost?.countCaught += 1
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
         }
     }
     

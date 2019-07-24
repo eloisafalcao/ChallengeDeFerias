@@ -40,12 +40,6 @@
                                     <action selector="exitButton:" destination="Dp8-dJ-gCq" eventType="touchUpInside" id="Xni-vJ-bY8"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="5Skuls" translatesAutoresizingMaskIntoConstraints="NO" id="aaO-AU-S6R">
-                                <rect key="frame" x="254" y="147" width="135.00000000000011" height="26.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="135" id="vea-6a-zEG"/>
-                                </constraints>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lifeBar" translatesAutoresizingMaskIntoConstraints="NO" id="gXW-7D-yIB">
                                 <rect key="frame" x="25" y="180" width="364" height="56"/>
                             </imageView>
@@ -87,13 +81,19 @@
                                     <outletCollection property="gestureRecognizers" destination="piG-ob-ecB" appends="YES" id="Wsh-OM-d6q"/>
                                 </connections>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="aaaaa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGM-31-ji5">
-                                <rect key="frame" x="175" y="722" width="64" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGM-31-ji5">
+                                <rect key="frame" x="175" y="722" width="38" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="pixelmix" family="pixelmix" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="pixelmix" family="pixelmix" pointSize="25"/>
                                 <color key="textColor" name="findHighlightColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5Skuls" translatesAutoresizingMaskIntoConstraints="NO" id="aaO-AU-S6R">
+                                <rect key="frame" x="254" y="146" width="135" height="26.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="vea-6a-zEG"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.1947064995765686" green="0.19754263758659363" blue="0.39217638969421387" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -201,6 +201,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SRz-Up-60D" secondAttribute="height" multiplier="1:1" id="QUo-xW-30q"/>
                                         </constraints>
+                                        <color key="tintColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="buttonJournal"/>
                                         <connections>
                                             <segue destination="VQW-Mc-C5r" kind="show" id="vqU-5n-NBg"/>
@@ -211,9 +212,10 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Vcz-Ip-QGf" secondAttribute="height" multiplier="1:1" id="v2S-FW-KFE"/>
                                         </constraints>
+                                        <color key="tintColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="buttonCenter"/>
                                         <connections>
-                                            <action selector="buttonCenterAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tcf-mh-DgD"/>
+                                            <action selector="buttonCenterAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QNU-Yh-72b"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ave-RR-vKQ">
@@ -221,6 +223,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ave-RR-vKQ" secondAttribute="height" multiplier="1:1" id="n2C-JT-RKS"/>
                                         </constraints>
+                                        <color key="tintColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="buttonSettings"/>
                                     </button>
                                 </subviews>
@@ -234,6 +237,11 @@
                                     <constraint firstItem="Vcz-Ip-QGf" firstAttribute="top" secondItem="GJE-GY-AOc" secondAttribute="top" constant="30" id="OTB-Ch-wtZ"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tooFar" translatesAutoresizingMaskIntoConstraints="NO" id="B4Z-ig-nSm">
+                                <rect key="frame" x="87" y="64" width="240" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1947064996" green="0.19754263759999999" blue="0.39217638970000002" alpha="0.5099261558219178" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -253,13 +261,16 @@
                     </view>
                     <connections>
                         <outlet property="buttonCenter" destination="Vcz-Ip-QGf" id="AQH-Wk-sqn"/>
+                        <outlet property="journalButton" destination="SRz-Up-60D" id="qxk-A0-HJI"/>
                         <outlet property="mapView" destination="QsK-OA-tPb" id="l18-n9-D0v"/>
+                        <outlet property="settingsButton" destination="Ave-RR-vKQ" id="a8s-KI-4eg"/>
+                        <outlet property="tooFarAlert" destination="B4Z-ig-nSm" id="14j-y0-dlJ"/>
                         <segue destination="Dp8-dJ-gCq" kind="show" identifier="showBattle" id="4n2-Pp-6Kt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-506" y="455"/>
+            <point key="canvasLocation" x="-500.00000000000006" y="454.6875"/>
         </scene>
         <!--Journal-->
         <scene sceneID="6bd-Np-fVo">
@@ -472,6 +483,7 @@
         <image name="heart" width="171" height="161"/>
         <image name="lifeBar" width="1001" height="152"/>
         <image name="questionMark" width="100" height="101"/>
+        <image name="tooFar" width="232" height="42"/>
         <image name="trap" width="152" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
