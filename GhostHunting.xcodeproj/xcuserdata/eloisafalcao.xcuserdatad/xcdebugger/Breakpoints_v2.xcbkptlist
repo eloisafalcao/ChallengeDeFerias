@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GhostHunting/BattleViewController.swift"
-            timestampString = "585522612.433292"
+            timestampString = "585607616.558386"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "winBattle(trap:button:)"
             landmarkType = "7">
          </BreakpointContent>

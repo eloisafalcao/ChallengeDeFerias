@@ -33,11 +33,11 @@ class BattleViewController: UIViewController {
     
     @IBAction func ghostButton(_ sender: Any) {
         let width = lifeBar.frame.width - (lifeBar.frame.width * CGFloat(percent ?? 0))
-        print(lifeBar.frame.width * CGFloat(percent ?? 0))
         lifeBar.frame = CGRect(x: lifeBar.frame.origin.x, y: lifeBar.frame.origin.y, width: width, height: lifeBar.frame.height)
         
         if lifeBar.frame.width <= 10 {
             trap?.image = UIImage(named: "trap")
+            
         }
     }
     
@@ -51,13 +51,14 @@ class BattleViewController: UIViewController {
     
 
     func setUpBattle(){
-        timerCount = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
+        timerCount = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
         
         ghostImage?.image = UIImage(named: ghost?.imageFileName ?? "heart")
         skullImage?.image = UIImage(named: ghost?.skullsClass ?? "heart")
         percent = ghost?.lifePercent
         trap?.image = UIImage(named: " ")
     }
+    
     
     @objc func onTimerFires() {
         timeLeft -= 1
@@ -66,6 +67,8 @@ class BattleViewController: UIViewController {
         if timeLeft <= 0 {
             timerCount?.invalidate()
             timer = nil
+            self.performSegue(withIdentifier: "loseSegue", sender: self)
+            print("lose game")
  
         }
     }
@@ -88,8 +91,31 @@ class BattleViewController: UIViewController {
     func winBattle(trap: UIImageView, button: UIButton){
         if trap.frame.intersects(button.frame) {
             print("win game")
-            //prepare for segue
+            self.performSegue(withIdentifier: "winSegue", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "winSegue" {
+            let vc = segue.destination as? WinLoseViewController
+            vc?.segueName = "winSegue"
+             
+        } else if segue.identifier == "loseSegue" {
+          let vc = segue.destination as? WinLoseViewController
+          vc?.segueName = "loseSegue"
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        
+        UIView.animate(withDuration: 2, delay: 0, options: [.curveEaseInOut, .repeat, .autoreverse, .allowUserInteraction], animations: {
+            
+            self.ghostImage?.center.y = self.view.center.y + 30
+            self.button?.center.y = self.view.center.y + 30
+
+        })
+        
+        
+    }
 }

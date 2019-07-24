@@ -94,6 +94,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
         } else {
             print("2 far")
+            
         }
         
         

@@ -74,7 +74,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-eg-YMW">
                                 <rect key="frame" x="0.0" y="247" width="414" height="354"/>
                                 <connections>
-                                    <action selector="ghostButton:" destination="Dp8-dJ-gCq" eventType="touchUpInside" id="L6k-Bd-JNc"/>
+                                    <action selector="ghostButton:" destination="Dp8-dJ-gCq" eventType="touchUpInside" id="y2K-OS-SfX"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="trap" translatesAutoresizingMaskIntoConstraints="NO" id="vEl-EQ-5BK">
@@ -130,14 +130,15 @@
                         <viewLayoutGuide key="safeArea" id="cm8-Mn-2Vy"/>
                     </view>
                     <connections>
-                        <outlet property="button" destination="o1f-eg-YMW" id="CH5-T1-Y7v"/>
+                        <outlet property="button" destination="o1f-eg-YMW" id="bCx-CD-NoH"/>
                         <outlet property="ghostImage" destination="twk-lh-6Jb" id="XDa-7c-zMb"/>
                         <outlet property="lifeBar" destination="mhB-5I-Cfw" id="Rje-o6-lf2"/>
                         <outlet property="panGesture" destination="piG-ob-ecB" id="aZq-sZ-xaH"/>
                         <outlet property="skullImage" destination="aaO-AU-S6R" id="EyC-Vf-pip"/>
                         <outlet property="timer" destination="pGM-31-ji5" id="w8f-kd-S6s"/>
                         <outlet property="trap" destination="vEl-EQ-5BK" id="MLt-SM-cqM"/>
-                        <segue destination="Crd-Qw-Dhb" kind="show" identifier="winLoseSegue" id="fMJ-5f-rEo"/>
+                        <segue destination="Crd-Qw-Dhb" kind="show" identifier="winSegue" id="rOP-Vz-lDz"/>
+                        <segue destination="Crd-Qw-Dhb" kind="show" identifier="loseSegue" id="Ozh-mS-D58"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZU-ba-3Bl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -147,7 +148,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="134.78260869565219" y="-552.45535714285711"/>
+            <point key="canvasLocation" x="239" y="-417"/>
         </scene>
         <!--Win Lose View Controller-->
         <scene sceneID="GCf-N8-j0s">
@@ -162,10 +163,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="back button" backgroundImage="backButton"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="m5u-QH-w3x"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="tGn-EF-YtR"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconGhost_Prancheta 1" translatesAutoresizingMaskIntoConstraints="NO" id="der-rT-brt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1Skulls" translatesAutoresizingMaskIntoConstraints="NO" id="der-rT-brt">
                                 <rect key="frame" x="87" y="349" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -174,13 +175,12 @@
                         <viewLayoutGuide key="safeArea" id="na7-Zy-U2s"/>
                     </view>
                     <connections>
-                        <outlet property="button" destination="Vb9-X3-xfo" id="r3f-ys-GlZ"/>
-                        <outlet property="image" destination="der-rT-brt" id="vZL-mr-IG9"/>
+                        <outlet property="image" destination="der-rT-brt" id="saK-aT-gQM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w9L-1d-WaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900.00000000000011" y="-556.47321428571422"/>
+            <point key="canvasLocation" x="1090" y="-274"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -259,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.9047619047619" y="115.57788944723619"/>
+            <point key="canvasLocation" x="-506" y="455"/>
         </scene>
         <!--Journal-->
         <scene sceneID="6bd-Np-fVo">
@@ -358,7 +358,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZN-kb-yfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882.60869565217399" y="116.51785714285714"/>
+            <point key="canvasLocation" x="1091" y="455"/>
         </scene>
         <!--Jornal Page View Controller-->
         <scene sceneID="GDs-Ny-RMc">
@@ -454,10 +454,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AfE-BX-0fc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1630.4347826086957" y="119.86607142857142"/>
+            <point key="canvasLocation" x="1829" y="455"/>
         </scene>
     </scenes>
     <resources>
+        <image name="1Skulls" width="86" height="91"/>
         <image name="1StarsGhost.png" width="1130" height="1080"/>
         <image name="2StarsGhost" width="1130" height="1080"/>
         <image name="5Skuls" width="425" height="91"/>
@@ -469,9 +470,11 @@
         <image name="buttonSettings" width="189" height="180"/>
         <image name="exitButton" width="80" height="91"/>
         <image name="heart" width="171" height="161"/>
-        <image name="iconGhost_Prancheta 1" width="130" height="130"/>
         <image name="lifeBar" width="1001" height="152"/>
         <image name="questionMark" width="100" height="101"/>
         <image name="trap" width="152" height="150"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="rOP-Vz-lDz"/>
+    </inferredMetricsTieBreakers>
 </document>
