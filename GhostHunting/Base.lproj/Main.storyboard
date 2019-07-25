@@ -132,6 +132,7 @@
                     <connections>
                         <outlet property="button" destination="o1f-eg-YMW" id="bCx-CD-NoH"/>
                         <outlet property="ghostImage" destination="twk-lh-6Jb" id="XDa-7c-zMb"/>
+                        <outlet property="ghostName" destination="KES-2q-4kq" id="rNz-JR-HZb"/>
                         <outlet property="lifeBar" destination="mhB-5I-Cfw" id="Rje-o6-lf2"/>
                         <outlet property="panGesture" destination="piG-ob-ecB" id="aZq-sZ-xaH"/>
                         <outlet property="skullImage" destination="aaO-AU-S6R" id="EyC-Vf-pip"/>

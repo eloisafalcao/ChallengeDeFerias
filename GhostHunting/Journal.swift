@@ -12,10 +12,11 @@ import CoreData
 class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
    
     var caughtsGhosts: [GhostData] = []
+    
+   
 //    var caughtGhosts: [NSManagedObject] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var closeButton: UIButton!
     @IBAction func closeButtonAction(_ sender: Any) {
         
@@ -36,7 +37,7 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! Celula
-        
+       
         var ghost: GhostData
         ghost = self.caughtsGhosts[indexPath.row]
         cell.image.image = UIImage(named: ghost.imageFileName ?? "heart")
@@ -49,6 +50,8 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let journalPage = storyboard?.instantiateViewController(withIdentifier: "JornalPageViewController") as? JornalPageViewController
+        
+        
     
     }
     

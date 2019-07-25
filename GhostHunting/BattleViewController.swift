@@ -18,6 +18,8 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var timer: UILabel!
     @IBOutlet var panGesture: UIPanGestureRecognizer!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var ghostName: UILabel!
+    
     
     var ghost: GhostData?
     var percent: Double?
@@ -56,7 +58,9 @@ class BattleViewController: UIViewController {
         ghostImage?.image = UIImage(named: ghost?.imageFileName ?? "heart")
         skullImage?.image = UIImage(named: ghost?.skullsClass ?? "heart")
         percent = ghost?.lifePercent
+        ghostName.text = ghost?.name
         trap?.image = UIImage(named: " ")
+        
     }
     
     
@@ -92,9 +96,10 @@ class BattleViewController: UIViewController {
         if trap.frame.intersects(button.frame) {
             print("win game")
             self.performSegue(withIdentifier: "winSegue", sender: self)
-            self.ghost?.countCaught += 1
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
         }
+        
+        updateCount(name: ghostName.text ?? "Ghost!")
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

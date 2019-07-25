@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		757D3FE022EA416900521D46 /* GhostData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D3FDE22EA416900521D46 /* GhostData+CoreDataClass.swift */; };
+		757D3FE122EA416900521D46 /* GhostData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D3FDF22EA416900521D46 /* GhostData+CoreDataProperties.swift */; };
 		7588A07622E577FF00BA12D4 /* JornalPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588A07522E577FF00BA12D4 /* JornalPageViewController.swift */; };
 		7588A09F22E7711F00BA12D4 /* WinLoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588A09E22E7711F00BA12D4 /* WinLoseViewController.swift */; };
 		75BFFAD422DFBD210095FB92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BFFAD322DFBD210095FB92 /* AppDelegate.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		757D3FDE22EA416900521D46 /* GhostData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GhostData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		757D3FDF22EA416900521D46 /* GhostData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GhostData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7588A07522E577FF00BA12D4 /* JornalPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JornalPageViewController.swift; sourceTree = "<group>"; };
 		7588A09E22E7711F00BA12D4 /* WinLoseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinLoseViewController.swift; sourceTree = "<group>"; };
 		75BFFAD022DFBD210095FB92 /* GhostHunting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GhostHunting.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +80,8 @@
 		75BFFAD222DFBD210095FB92 /* GhostHunting */ = {
 			isa = PBXGroup;
 			children = (
+				757D3FDE22EA416900521D46 /* GhostData+CoreDataClass.swift */,
+				757D3FDF22EA416900521D46 /* GhostData+CoreDataProperties.swift */,
 				75BFFAD322DFBD210095FB92 /* AppDelegate.swift */,
 				75BFFAD522DFBD210095FB92 /* ViewController.swift */,
 				75BFFAF622E2E1DF0095FB92 /* BattleViewController.swift */,
@@ -167,8 +173,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				75BFFAD622DFBD210095FB92 /* ViewController.swift in Sources */,
+				757D3FE122EA416900521D46 /* GhostData+CoreDataProperties.swift in Sources */,
 				7588A07622E577FF00BA12D4 /* JornalPageViewController.swift in Sources */,
 				75D7E27D22EA12D100CEE8E6 /* SettingsViewController.swift in Sources */,
+				757D3FE022EA416900521D46 /* GhostData+CoreDataClass.swift in Sources */,
 				7588A09F22E7711F00BA12D4 /* WinLoseViewController.swift in Sources */,
 				75BFFAEF22E002E10095FB92 /* CoreDataHelper.swift in Sources */,
 				75BFFADC22DFBD210095FB92 /* GhostHunting.xcdatamodeld in Sources */,

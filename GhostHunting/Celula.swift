@@ -10,6 +10,5 @@ import UIKit
 
 class Celula: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var ghostName: UILabel!
     
 }
