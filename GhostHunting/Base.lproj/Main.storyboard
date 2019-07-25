@@ -148,7 +148,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="239" y="-417"/>
+            <point key="canvasLocation" x="237.68115942028987" y="-417.1875"/>
         </scene>
         <!--Win Lose View Controller-->
         <scene sceneID="GCf-N8-j0s">
@@ -181,6 +181,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w9L-1d-WaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1090" y="-274"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mfD-gk-mhA">
+            <objects>
+                <viewController id="cFh-ed-hnE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RxU-c6-rex">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Fvm-fO-K9t"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vZq-fB-7kz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-523" y="1201"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -225,6 +240,9 @@
                                         </constraints>
                                         <color key="tintColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="buttonSettings"/>
+                                        <connections>
+                                            <segue destination="cFh-ed-hnE" kind="show" id="sNQ-oa-xbd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1947064995765686" green="0.19754263758659363" blue="0.39217638969421387" alpha="0.75" colorSpace="custom" customColorSpace="displayP3"/>
@@ -270,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-500.00000000000006" y="454.6875"/>
+            <point key="canvasLocation" x="-523" y="455"/>
         </scene>
         <!--Journal-->
         <scene sceneID="6bd-Np-fVo">
@@ -312,21 +330,21 @@
                                 <rect key="frame" x="0.0" y="205.5" width="414" height="656.5"/>
                                 <color key="backgroundColor" red="0.1947064995765686" green="0.19754263758659363" blue="0.39217638969421387" alpha="0.67000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jHD-IK-HA8">
-                                    <size key="itemSize" width="145" height="200"/>
+                                    <size key="itemSize" width="109" height="152"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Q9u-Mz-ZWg" customClass="Celula" customModule="GhostHunting" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="145" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="109" height="152"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="145" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="109" height="152"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1StarsGhost.png" translatesAutoresizingMaskIntoConstraints="NO" id="GqU-yb-xn3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="145" height="200"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="109" height="152"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -369,7 +387,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZN-kb-yfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1091" y="455"/>
+            <point key="canvasLocation" x="1090" y="455"/>
         </scene>
         <!--Jornal Page View Controller-->
         <scene sceneID="GDs-Ny-RMc">
@@ -465,7 +483,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AfE-BX-0fc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1829" y="455"/>
+            <point key="canvasLocation" x="1823" y="455"/>
         </scene>
     </scenes>
     <resources>

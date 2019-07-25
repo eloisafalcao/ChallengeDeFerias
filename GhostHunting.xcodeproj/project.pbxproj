@@ -20,6 +20,7 @@
 		75BFFAEF22E002E10095FB92 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BFFAEE22E002E10095FB92 /* CoreDataHelper.swift */; };
 		75BFFAF122E019030095FB92 /* GhostAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BFFAF022E019030095FB92 /* GhostAnnotation.swift */; };
 		75BFFAF722E2E1DF0095FB92 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BFFAF622E2E1DF0095FB92 /* BattleViewController.swift */; };
+		75D7E27D22EA12D100CEE8E6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D7E27C22EA12D100CEE8E6 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		75BFFAEE22E002E10095FB92 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		75BFFAF022E019030095FB92 /* GhostAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostAnnotation.swift; sourceTree = "<group>"; };
 		75BFFAF622E2E1DF0095FB92 /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
+		75D7E27C22EA12D100CEE8E6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				75BFFAE822DFD8E10095FB92 /* Journal.swift */,
 				7588A07522E577FF00BA12D4 /* JornalPageViewController.swift */,
 				75BFFAEE22E002E10095FB92 /* CoreDataHelper.swift */,
+				75D7E27C22EA12D100CEE8E6 /* SettingsViewController.swift */,
 				75BFFAD722DFBD210095FB92 /* Main.storyboard */,
 				75BFFADD22DFBD230095FB92 /* Assets.xcassets */,
 				75BFFADF22DFBD230095FB92 /* LaunchScreen.storyboard */,
@@ -165,6 +168,7 @@
 			files = (
 				75BFFAD622DFBD210095FB92 /* ViewController.swift in Sources */,
 				7588A07622E577FF00BA12D4 /* JornalPageViewController.swift in Sources */,
+				75D7E27D22EA12D100CEE8E6 /* SettingsViewController.swift in Sources */,
 				7588A09F22E7711F00BA12D4 /* WinLoseViewController.swift in Sources */,
 				75BFFAEF22E002E10095FB92 /* CoreDataHelper.swift in Sources */,
 				75BFFADC22DFBD210095FB92 /* GhostHunting.xcdatamodeld in Sources */,
@@ -321,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U55T77GQH8;
 				INFOPLIST_FILE = GhostHunting/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,6 +344,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U55T77GQH8;
 				INFOPLIST_FILE = GhostHunting/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

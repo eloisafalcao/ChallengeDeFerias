@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
    
     var caughtsGhosts: [GhostData] = []
+//    var caughtGhosts: [NSManagedObject] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -23,14 +25,13 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         caughtsGhosts = getCaughtGhosts()
     
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return self.caughtsGhosts.count
+       return caughtsGhosts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -40,6 +41,9 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         ghost = self.caughtsGhosts[indexPath.row]
         cell.image.image = UIImage(named: ghost.imageFileName ?? "heart")
         
+//        let caughtGhost = caughtGhosts[indexPath.row]
+//        cell.ghostName.text = caughtGhost.value(forKey: "ghostName") as? String
+
         return cell
     }
     

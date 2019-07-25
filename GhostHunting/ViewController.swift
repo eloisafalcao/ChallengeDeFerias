@@ -9,9 +9,10 @@
 import UIKit
 import MapKit
 import CoreLocation
+import UserNotifications
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
-
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var buttonCenter: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
@@ -37,11 +38,45 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         addAnnotations()
         centerUserLocation()
         pressedButtons()
+        createNotification()
         tooFarAlert.isHidden = true
-     
+    }
+
+
+    func createNotification(){
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge])
+        { (success, error) in
+            print("erro notification")
+        }
+        
+        let notificationTitle: String = "Hello Hunter 👻"
+        let notificationDescriptions = ["It's Ghost Time!", "There's a weird presence surround you, let's find out!", "There's something strange on your neighborhood!"]
+        let notificationDescription = notificationDescriptions.randomElement()
+        
+        // notification content
+        let content   = UNMutableNotificationContent()
+        content.title = notificationTitle
+        content.body  = notificationDescription ?? "It's Ghost Time!"
+        content.sound = UNNotificationSound.default
+        
+        // when notification will apear
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 70, repeats: true)
+    
+        // request
+        let request = UNNotificationRequest(identifier: "notificationCenter", content: content, trigger: trigger)
+        
+        notificationCenter.add(request) { (error) in
+            print("erro notificacao")
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+        
     }
     
-    func checkAuthorizationStatus() {
+    
+    func checkAuthorizationStatus(){
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
@@ -147,6 +182,5 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         }
     }
-    
 
 }
