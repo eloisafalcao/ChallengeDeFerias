@@ -23,4 +23,6 @@ extension GhostData {
     @NSManaged public var name: String?
     @NSManaged public var skullsClass: String?
     @NSManaged public var ghostDescription: String?
+    @NSManaged public var nonSelectImage: String?
+    
 }

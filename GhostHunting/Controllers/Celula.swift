@@ -11,4 +11,6 @@ import UIKit
 class Celula: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var skullw: UIImageView!
+    @IBOutlet weak var orangeView: UIView!
+    
 }

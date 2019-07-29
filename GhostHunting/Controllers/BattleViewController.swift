@@ -28,7 +28,7 @@ class BattleViewController: UIViewController {
     var percent: Double?
     
     var timerCount:Timer?
-    var timeLeft = 60
+    var timeLeft = 30
     
     @IBAction func exitButton(_ sender: Any) {
           self.dismiss(animated: true, completion: nil)

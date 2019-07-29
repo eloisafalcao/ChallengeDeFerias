@@ -29,7 +29,21 @@ class JornalPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(ghost)
-
+        
+        if ghost?.countCaught == 0{
+            ghostImage.image = UIImage(named: ghost?.nonSelectImage ?? "naoSelecionadoFantasma2.png")
+            ghostName.text = " "
+            skulls.image = UIImage(named: " ")
+            ghostDescription.text = " "
+            ghostCount.text = " "
+            caughts.text = " "
+            
+            ghostImage.frame.size.height = view.frame.height/2.3
+            ghostImage.frame.size.width = view.frame.width
+            ghostImage.center = view.center
+        }
+        
+        else {
         ghostImage.image = UIImage(named: ghost?.imageFileName ?? "heart")
         ghostName.text = ghost?.name
         skulls.image = UIImage(named: ghost?.skullsClass ?? "heart")
@@ -38,7 +52,6 @@ class JornalPageViewController: UIViewController {
             let showCount: String = String(count)
             ghostCount.text = showCount
            
-            
          //Autolayout
             closeButton.frame.size.height = view.frame.height/20
             closeButton.frame.size.width = closeButton.frame.height
@@ -79,19 +92,9 @@ class JornalPageViewController: UIViewController {
             ghostCount.frame.size.width = view.frame.width/5
             ghostCount.frame.origin.x = caughts.frame.origin.x + caughts.frame.width
             ghostCount.frame.origin.y = ghostDescription.frame.origin.y + ghostDescription.frame.height
-            
-            
-            
         }
-        else {
-            print("optionalInt was nil")
         }
         
     }
     
-    
-    
-
-    
-
 }

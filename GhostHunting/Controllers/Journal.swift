@@ -27,7 +27,6 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         super.viewDidLoad()
         caughtsGhosts = getCaughtGhosts()
         
-        
         //Autolayout
         closeButton.frame.size.height = view.frame.height/20
         closeButton.frame.size.width = closeButton.frame.height
@@ -48,11 +47,6 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         collectionView.frame.size.width = view.frame.width
         collectionView.center.x = view.center.x
         collectionView.frame.origin.y = viewRoxa.frame.origin.y + viewRoxa.frame.size.height
-        
-        
-        
-//        cell.frame.size.height = view.frame.height/3
-//        cell.frame.size.width = view.frame.width/3
     
     }
     
@@ -63,21 +57,23 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! Celula
-       
         var ghost: GhostData
         ghost = self.caughtsGhosts[indexPath.row]
-        cell.image.image = UIImage(named: ghost.imageFileName ?? "heart")
-        cell.skullw.image = UIImage(named: ghost.skullsClass ?? "heart")
+        
+        if ghost.countCaught == 0 {
+            cell.image.image = UIImage(named: ghost.nonSelectImage ?? "naoSelecionadoFantasma2.png")
+            cell.orangeView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            cell.skullw.image = UIImage(named: " ")
+            
+        } else {
+            cell.image.image = UIImage(named: ghost.imageFileName ?? " ")
+            cell.skullw.image = UIImage(named: ghost.skullsClass ?? " ")
+        }
+        
         return cell
     }
     
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let journalPage = storyboard?.instantiateViewController(withIdentifier: "JornalPageViewController") as? JornalPageViewController
-//         journalPage?.ghost = caughtsGhosts[indexPath.row]
-//
-//    }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "cellSegue" {
             var journalPageVc = segue.destination as! JornalPageViewController

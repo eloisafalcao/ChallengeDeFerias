@@ -10,18 +10,20 @@ import CoreData
 import UIKit
 
 func makeAllGhosts(){
-    makeAGhost(name: "Ghost of past bug", withThe: "1StarsGhost.png", skulls: "1Skulls", percent: 0.3, description: " 1 star description ")
-    makeAGhost(name: "Boo", withThe: "2StarsGhost.png", skulls: "2Skulls", percent: 0.25, description: " 2 star description ")
-    makeAGhost(name: "Cry Baby", withThe: "3StarsGhost.png", skulls: "3Skull", percent: 0.2, description: " 3 star description")
-    makeAGhost(name: "Casper", withThe: "4StarsGhost.png", skulls: "4Skulls", percent: 0.15, description: "4 star description ")
-    makeAGhost(name: "Poltergeist", withThe: "5StarsGhost.png", skulls: "5Skuls", percent: 0.10, description: " 5 star description")
+    makeAGhost(name: "Ghost of past bug", withThe: "1StarsGhost.png", skulls: "1Skulls", percent: 0.3, description: "This ghost especially haunts developers, is a bug that has been ignored and therefore returns in search of revenge.", withThe: "naoSelecionadoFantasma1.png")
+    
+    makeAGhost(name: "Boo", withThe: "2StarsGhost.png", skulls: "2Skulls", percent: 0.25, description: "Boo is just a little ghost who likes to play around, he's harmless but can be very annoying when upset.", withThe: "naoSelecionadoFantasma2.png")
+    
+    makeAGhost(name: "Cry Baby", withThe: "3StarsGhost.png", skulls: "3Skulls", percent: 0.2, description: "His cry can be heard for miles away, he haunts the sad people and feeds on their pain. Make no mistake about the size, this little guy can be very scary!", withThe: "naoSelecionadoFantasma3.png")
+    
+    makeAGhost(name: "Casper", withThe: "4StarsGhost.png", skulls: "4Skulls", percent: 0.15, description: "Despite the name, this ghost is not friendly at all, he is extremely needy and when he finds a haunting victim he never leaves.", withThe: "naoSelecionadoFantasma4.png")
+    
+    makeAGhost(name: "Poltergeist", withThe: "5StarsGhost.png", skulls: "5Skulls", percent: 0.10, description: "It carries the name of an entire category of haunts for the noise it makes, manifests itself in conjunction with the environment and so can be fatal!", withThe: "naoSelecionadoFantasma5.png")
 
     (UIApplication.shared.delegate as! AppDelegate).saveContext()
-
-
 }
 
-func makeAGhost(name:String, withThe imageName:String, skulls: String, percent: Double, description: String) {
+func makeAGhost(name:String, withThe imageName:String, skulls: String, percent: Double, description: String, withThe zeroCountImage:String) {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let ghost = GhostData(context: context)
     
@@ -31,6 +33,7 @@ func makeAGhost(name:String, withThe imageName:String, skulls: String, percent: 
     ghost.skullsClass = skulls
     ghost.lifePercent = percent
     ghost.countCaught = 0
+    ghost.nonSelectImage = zeroCountImage
 }
 
 func bringAllTheGhosts() -> [GhostData] {

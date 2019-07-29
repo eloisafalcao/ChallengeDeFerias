@@ -258,7 +258,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fm7-fR-DbA">
                                                     <rect key="frame" x="0.0" y="201.5" width="193" height="50.5"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5Skuls" translatesAutoresizingMaskIntoConstraints="NO" id="epg-i6-x3B">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4Skulls" translatesAutoresizingMaskIntoConstraints="NO" id="epg-i6-x3B">
                                                             <rect key="frame" x="0.0" y="0.0" width="193" height="50.5"/>
                                                         </imageView>
                                                     </subviews>
@@ -288,6 +288,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="image" destination="GqU-yb-xn3" id="ctN-np-564"/>
+                                            <outlet property="orangeView" destination="Fm7-fR-DbA" id="pLg-Q0-Fxd"/>
                                             <outlet property="skullw" destination="epg-i6-x3B" id="tNp-1Q-ISS"/>
                                             <segue destination="JyL-Gk-WUK" kind="show" identifier="cellSegue" id="qQ1-6e-rGL"/>
                                         </connections>
@@ -362,7 +363,7 @@
                                 <rect key="frame" x="0.0" y="113" width="1024" height="594"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" fixedFrame="YES" image="5Skuls" translatesAutoresizingMaskIntoConstraints="NO" id="f3x-zb-bi8">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" fixedFrame="YES" image="5Skulls" translatesAutoresizingMaskIntoConstraints="NO" id="f3x-zb-bi8">
                                 <rect key="frame" x="19.999999999999943" y="738" width="1004.0000000000001" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -417,9 +418,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1Skulls" width="86" height="91"/>
+        <image name="1Skulls" width="85" height="90"/>
         <image name="1StarsGhost.png" width="1130" height="1080"/>
         <image name="2StarsGhost" width="1130" height="1080"/>
+        <image name="4Skulls" width="353" height="91"/>
+        <image name="5Skulls" width="443" height="91"/>
         <image name="5Skuls" width="425" height="91"/>
         <image name="5StarsGhost" width="1130" height="1080"/>
         <image name="backButton" width="604" height="140"/>
