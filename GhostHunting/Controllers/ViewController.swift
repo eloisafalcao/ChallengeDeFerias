@@ -15,9 +15,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var buttonCenter: UIButton!
-    @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var journalButton: UIButton!
     @IBOutlet weak var tooFarAlert: UIImageView!
+    @IBOutlet weak var viewRoxa: UIView!
+    @IBOutlet weak var tooFarView: UIImageView!
     
     var ghostArray: [GhostData] = []
     var selectedGhost: GhostData?
@@ -40,6 +41,33 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         pressedButtons()
         createNotification()
         tooFarAlert.isHidden = true
+        
+        
+        //Autolayout
+        mapView.frame.size = view.frame.size
+        mapView.frame.origin = view.frame.origin
+        mapView.center = view.center
+        
+        viewRoxa.frame.size.height = view.frame.height/5
+        viewRoxa.frame.size.width = view.frame.width
+        viewRoxa.center.x = view.center.x
+        viewRoxa.center.y = view.frame.height - viewRoxa.frame.height/2
+
+        tooFarView.frame.size.height = view.frame.height/9
+        tooFarView.frame.size.width = view.frame.width/2
+        tooFarView.center.x = view.center.x
+        tooFarView.center.y = viewRoxa.frame.height
+        
+        journalButton.frame.size.height = view.frame.height/6
+        journalButton.frame.size.width =  journalButton.frame.height
+        journalButton.center.x = view.center.x - (journalButton.frame.width/2 + 8)
+        journalButton.center.y = viewRoxa.center.y
+        
+        buttonCenter.frame.size.height = journalButton.frame.height
+        buttonCenter.frame.size.width = journalButton.frame.height
+        buttonCenter.center.x = view.center.x + (journalButton.frame.width/2 + 8)
+        buttonCenter.center.y = viewRoxa.center.y
+        
     }
 
 
@@ -62,7 +90,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         content.sound = UNNotificationSound.default
         
         // when notification will apear
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 70, repeats: true)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 43200, repeats: true)
     
         // request
         let request = UNNotificationRequest(identifier: "notificationCenter", content: content, trigger: trigger)
@@ -111,14 +139,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     func pressedButtons(){
-        settingsButton.setImage(UIImage(named: "pressedSettingButton"), for: .highlighted)
         journalButton.setImage(UIImage(named: "pressedJournalButton"), for: .highlighted)
         buttonCenter.setImage( UIImage(named: "pressedCenterButton"), for: .highlighted)
-        
     }
     
- 
-
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         mapView.deselectAnnotation(view.annotation!, animated: false)
         
@@ -126,7 +150,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             return
         }
         
-        let region = MKCoordinateRegion(center: view.annotation!.coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
+        let region = MKCoordinateRegion(center: view.annotation!.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
         self.mapView.setRegion(region, animated: false)
    
        if let coordinate = locationManager.location?.coordinate {
@@ -153,7 +177,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
 
         if annotation is MKUserLocation {
-            annotationView.image = UIImage(named: "userLocation")
+           annotationView.image = UIImage(named: "userLocation")
         } else {
             annotationView.image = UIImage(named: "pinGhost")
         }

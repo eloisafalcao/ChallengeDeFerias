@@ -1,0 +1,91 @@
+//
+//  Journal.swift
+//  GhostHunting
+//
+//  Created by Eloisa Falcão on 17/07/19.
+//  Copyright © 2019 Eloisa Falcão. All rights reserved.
+//
+
+import UIKit
+import CoreData
+
+class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
+   
+    var caughtsGhosts: [GhostData] = []
+  
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var closeButton: UIButton!
+    @IBAction func closeButtonAction(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    @IBOutlet weak var viewRoxa: UIView!
+    @IBOutlet weak var journal: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        caughtsGhosts = getCaughtGhosts()
+        
+        
+        //Autolayout
+        closeButton.frame.size.height = view.frame.height/20
+        closeButton.frame.size.width = closeButton.frame.height
+        closeButton.frame.origin.x = view.frame.origin.x + closeButton.frame.height/2
+        closeButton.frame.origin.y = view.frame.origin.x + closeButton.frame.height
+        
+        viewRoxa.frame.size.height = view.frame.height/5
+        viewRoxa.frame.size.width = view.frame.width
+        viewRoxa.center.x = view.center.x
+        viewRoxa.frame.origin = view.frame.origin
+        
+         journal.adjustsFontSizeToFitWidth = true
+         journal.frame.size.height = view.frame.height/20
+         journal.frame.origin.x = view.frame.origin.x + closeButton.frame.height/2
+         journal.frame.origin.y = closeButton.frame.origin.y + (closeButton.frame.height/2)*3
+        
+        collectionView.frame.size.height = view.frame.height - viewRoxa.frame.size.height
+        collectionView.frame.size.width = view.frame.width
+        collectionView.center.x = view.center.x
+        collectionView.frame.origin.y = viewRoxa.frame.origin.y + viewRoxa.frame.size.height
+        
+        
+        
+//        cell.frame.size.height = view.frame.height/3
+//        cell.frame.size.width = view.frame.width/3
+    
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+       return caughtsGhosts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! Celula
+       
+        var ghost: GhostData
+        ghost = self.caughtsGhosts[indexPath.row]
+        cell.image.image = UIImage(named: ghost.imageFileName ?? "heart")
+        cell.skullw.image = UIImage(named: ghost.skullsClass ?? "heart")
+        return cell
+    }
+    
+    
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let journalPage = storyboard?.instantiateViewController(withIdentifier: "JornalPageViewController") as? JornalPageViewController
+//         journalPage?.ghost = caughtsGhosts[indexPath.row]
+//
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "cellSegue" {
+            var journalPageVc = segue.destination as! JornalPageViewController
+            let cell = sender as! UICollectionViewCell
+            let indexPath = collectionView.indexPath(for: cell)
+            let ghost = caughtsGhosts[(indexPath?.row)!]
+            journalPageVc.ghost = ghost
+        }
+    }
+
+}

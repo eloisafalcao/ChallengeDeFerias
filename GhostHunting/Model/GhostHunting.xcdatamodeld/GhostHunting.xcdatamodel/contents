@@ -2,12 +2,13 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="GhostData" representedClassName="GhostData" syncable="YES">
         <attribute name="countCaught" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ghostDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageFileName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lifePercent" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="skullsClass" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="GhostData" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="GhostData" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

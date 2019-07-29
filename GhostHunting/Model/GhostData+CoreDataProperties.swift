@@ -22,5 +22,5 @@ extension GhostData {
     @NSManaged public var lifePercent: Double
     @NSManaged public var name: String?
     @NSManaged public var skullsClass: String?
-
+    @NSManaged public var ghostDescription: String?
 }
