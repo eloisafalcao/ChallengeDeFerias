@@ -28,7 +28,7 @@ class BattleViewController: UIViewController {
     var percent: Double?
     
     var timerCount:Timer?
-    var timeLeft = 30
+    var timeLeft = 20
     
     @IBAction func exitButton(_ sender: Any) {
           self.dismiss(animated: true, completion: nil)
@@ -54,8 +54,6 @@ class BattleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpBattle()
-        print("o ghost selecionado foi \(ghost?.imageFileName ?? " nenhum ")")
-        
         
         //Autolayout
         exitBattleButton.frame.size.height = view.frame.height/20
@@ -166,7 +164,7 @@ class BattleViewController: UIViewController {
         }
         
         updateCount(name: ghostName.text ?? "Ghost!")
-
+    
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -193,6 +191,6 @@ class BattleViewController: UIViewController {
         
     }
     
- 
+    
     
 }

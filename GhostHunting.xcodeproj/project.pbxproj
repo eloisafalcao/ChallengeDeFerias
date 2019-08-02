@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		752C99D522F0DDFE00598845 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752C99D422F0DDFE00598845 /* TasksViewController.swift */; };
+		752C99D722F0E06E00598845 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752C99D622F0E06E00598845 /* TaskCell.swift */; };
+		752C99DA22F0E5B200598845 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752C99D822F0E5B200598845 /* Task+CoreDataClass.swift */; };
+		752C99DB22F0E5B200598845 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752C99D922F0E5B200598845 /* Task+CoreDataProperties.swift */; };
 		752D1D6A22EB944500B3C0BD /* pixelmix_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75BFFAEA22DFECAD0095FB92 /* pixelmix_bold.ttf */; };
 		752D1D6B22EB944800B3C0BD /* pixelmix.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75BFFAEB22DFECAD0095FB92 /* pixelmix.ttf */; };
 		757D3FE022EA416900521D46 /* GhostData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D3FDE22EA416900521D46 /* GhostData+CoreDataClass.swift */; };
@@ -27,6 +31,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		752C99D422F0DDFE00598845 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		752C99D622F0E06E00598845 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		752C99D822F0E5B200598845 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		752C99D922F0E5B200598845 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		752C99DE22F4A22A00598845 /* Directions.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Directions.geojson; sourceTree = "<group>"; };
 		752D1D6F22ECC8F200B3C0BD /* pixelmix_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pixelmix_bold.ttf; sourceTree = "<group>"; };
 		752D1D7022ECC8F200B3C0BD /* pixelmix.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pixelmix.ttf; sourceTree = "<group>"; };
 		757D3FDE22EA416900521D46 /* GhostData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GhostData+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -64,11 +73,13 @@
 		752D1D6C22ECC82200B3C0BD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				75BFFAF022E019030095FB92 /* GhostAnnotation.swift */,
 				75BFFADA22DFBD210095FB92 /* GhostHunting.xcdatamodeld */,
+				75BFFAF022E019030095FB92 /* GhostAnnotation.swift */,
 				75BFFAEE22E002E10095FB92 /* CoreDataHelper.swift */,
 				757D3FDE22EA416900521D46 /* GhostData+CoreDataClass.swift */,
 				757D3FDF22EA416900521D46 /* GhostData+CoreDataProperties.swift */,
+				752C99D822F0E5B200598845 /* Task+CoreDataClass.swift */,
+				752C99D922F0E5B200598845 /* Task+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -76,7 +87,9 @@
 		752D1D6D22ECC86100B3C0BD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				75BFFAEC22DFF8280095FB92 /* Celula.swift */,
 				75BFFAD722DFBD210095FB92 /* Main.storyboard */,
+				752C99D622F0E06E00598845 /* TaskCell.swift */,
 				75BFFADF22DFBD230095FB92 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -85,9 +98,10 @@
 		752D1D6E22ECC87000B3C0BD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				752C99DE22F4A22A00598845 /* Directions.geojson */,
+				752C99D422F0DDFE00598845 /* TasksViewController.swift */,
 				75BFFAE822DFD8E10095FB92 /* Journal.swift */,
 				7588A07522E577FF00BA12D4 /* JornalPageViewController.swift */,
-				75BFFAEC22DFF8280095FB92 /* Celula.swift */,
 				7588A09E22E7711F00BA12D4 /* WinLoseViewController.swift */,
 				75BFFAF622E2E1DF0095FB92 /* BattleViewController.swift */,
 				75BFFAD522DFBD210095FB92 /* ViewController.swift */,
@@ -202,12 +216,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				75BFFAD622DFBD210095FB92 /* ViewController.swift in Sources */,
+				752C99DA22F0E5B200598845 /* Task+CoreDataClass.swift in Sources */,
 				757D3FE122EA416900521D46 /* GhostData+CoreDataProperties.swift in Sources */,
 				7588A07622E577FF00BA12D4 /* JornalPageViewController.swift in Sources */,
 				757D3FE022EA416900521D46 /* GhostData+CoreDataClass.swift in Sources */,
 				7588A09F22E7711F00BA12D4 /* WinLoseViewController.swift in Sources */,
+				752C99DB22F0E5B200598845 /* Task+CoreDataProperties.swift in Sources */,
+				752C99D522F0DDFE00598845 /* TasksViewController.swift in Sources */,
 				75BFFAEF22E002E10095FB92 /* CoreDataHelper.swift in Sources */,
 				75BFFADC22DFBD210095FB92 /* GhostHunting.xcdatamodeld in Sources */,
+				752C99D722F0E06E00598845 /* TaskCell.swift in Sources */,
 				75BFFAED22DFF8280095FB92 /* Celula.swift in Sources */,
 				75BFFAD422DFBD210095FB92 /* AppDelegate.swift in Sources */,
 				75BFFAF722E2E1DF0095FB92 /* BattleViewController.swift in Sources */,

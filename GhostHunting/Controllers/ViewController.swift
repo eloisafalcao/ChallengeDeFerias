@@ -19,6 +19,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var tooFarAlert: UIImageView!
     @IBOutlet weak var viewRoxa: UIView!
     @IBOutlet weak var tooFarView: UIImageView!
+    @IBOutlet weak var tasksButton: UIButton!
     
     var ghostArray: [GhostData] = []
     var selectedGhost: GhostData?
@@ -39,7 +40,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         addAnnotations()
         centerUserLocation()
         pressedButtons()
-        createNotification()
         tooFarAlert.isHidden = true
         
         
@@ -58,63 +58,55 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         tooFarView.center.x = view.center.x
         tooFarView.center.y = viewRoxa.frame.height
         
-        journalButton.frame.size.height = view.frame.height/6
+        journalButton.frame.size.height = view.frame.height/7
         journalButton.frame.size.width =  journalButton.frame.height
-        journalButton.center.x = view.center.x - (journalButton.frame.width/2 + 8)
+        journalButton.center.x = view.center.x
         journalButton.center.y = viewRoxa.center.y
         
         buttonCenter.frame.size.height = journalButton.frame.height
         buttonCenter.frame.size.width = journalButton.frame.height
-        buttonCenter.center.x = view.center.x + (journalButton.frame.width/2 + 8)
+        buttonCenter.center.x = view.center.x + (journalButton.frame.width*1.1)
         buttonCenter.center.y = viewRoxa.center.y
         
-    }
-
-
-    func createNotification(){
-        
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge])
-        { (success, error) in
-            print("erro notification")
-        }
-        
-        let notificationTitle: String = "Hello Hunter 👻"
-        let notificationDescriptions = ["It's Ghost Time!", "There's a weird presence surround you, let's find out!", "There's something strange on your neighborhood!"]
-        let notificationDescription = notificationDescriptions.randomElement()
-        
-        // notification content
-        let content   = UNMutableNotificationContent()
-        content.title = notificationTitle
-        content.body  = notificationDescription ?? "It's Ghost Time!"
-        content.sound = UNNotificationSound.default
-        
-        // when notification will apear
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 43200, repeats: true)
-    
-        // request
-        let request = UNNotificationRequest(identifier: "notificationCenter", content: content, trigger: trigger)
-        
-        notificationCenter.add(request) { (error) in
-            print("erro notificacao")
-        }
-        
-        self.dismiss(animated: true, completion: nil)
-        
+        tasksButton.frame.size.height = journalButton.frame.height
+        tasksButton.frame.size.width = journalButton.frame.height
+        tasksButton.center.x = view.center.x - (journalButton.frame.width*1.1)
+        tasksButton.center.y = viewRoxa.center.y
     }
     
     
     func checkAuthorizationStatus(){
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
+            print("notDetermined")
             locationManager.requestWhenInUseAuthorization()
-        case .restricted:
-            print("restricted")  // Show an alert letting them know what's up
-        case .denied:
-            print("denied") // Show alert instructing them how to turn on permissions
-        case .authorizedAlways:
-            print("authorizedAlways")
-        case .authorizedWhenInUse:
+        case .denied, .restricted:
+            print("denied")
+            let alertController = UIAlertController(title: "Hello Hunter 👻", message: "You need to allow your location in settings to start searching for ghosts!", preferredStyle: .alert)
+            let actionOk = UIAlertAction(title: "Cancel",
+                                         style: .default,
+                                         handler: nil)
+            
+            let actionSettings = UIAlertAction(title: "Settings", style: .default){ (_) -> Void in
+                
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                        print("Settings opened: \(success)") // Prints true
+                    })
+                }
+                
+            }
+            
+            alertController.addAction(actionOk)
+            alertController.addAction(actionSettings)
+
+            self.present(alertController, animated: true, completion: nil)
+            
+        case .authorizedWhenInUse, .authorizedAlways:
             mapView.showsUserLocation = true
             locationManager.startUpdatingLocation()
             centerUserLocation()
@@ -124,6 +116,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
     }
     
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+         checkAuthorizationStatus()
+    }
     
     func centerUserLocation(){
             guard let coordinate = locationManager.location?.coordinate else {return}

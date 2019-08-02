@@ -9,17 +9,21 @@
 import UIKit
 import CoreData
 
-class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
-   
+class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    @IBOutlet weak var searchView: UIView!
+    
     var caughtsGhosts: [GhostData] = []
-  
+//    var filteredGhosts = [GhostData]()
+//
+//    let searchController = UISearchController(searchResultsController: nil)
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var closeButton: UIButton!
     @IBAction func closeButtonAction(_ sender: Any) {
-        
         self.dismiss(animated: true, completion: nil)
-        
     }
+    
     @IBOutlet weak var viewRoxa: UIView!
     @IBOutlet weak var journal: UILabel!
     
@@ -27,6 +31,15 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         super.viewDidLoad()
         caughtsGhosts = getCaughtGhosts()
         
+        //Search Bar
+//        filteredGhosts = caughtsGhosts
+//
+//        searchController.searchResultsUpdater = self
+//        searchController.dimsBackgroundDuringPresentation = false
+//        definesPresentationContext = true
+//        searchView = searchController.searchBar
+//
+//
         //Autolayout
         closeButton.frame.size.height = view.frame.height/20
         closeButton.frame.size.width = closeButton.frame.height
@@ -49,7 +62,7 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         collectionView.frame.origin.y = viewRoxa.frame.origin.y + viewRoxa.frame.size.height
     
     }
-    
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        return caughtsGhosts.count
@@ -68,6 +81,9 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         } else {
             cell.image.image = UIImage(named: ghost.imageFileName ?? " ")
             cell.skullw.image = UIImage(named: ghost.skullsClass ?? " ")
+            
+//            cell.image.image = UIImage(named: filteredGhosts[indexPath.row].imageFileName ?? " ")
+//            cell.skullw.image = UIImage(named: filteredGhosts[indexPath.row].skullsClass ?? " ")
         }
         
         return cell
@@ -76,12 +92,23 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "cellSegue" {
-            var journalPageVc = segue.destination as! JornalPageViewController
+            let journalPageVc = segue.destination as! JornalPageViewController
             let cell = sender as! UICollectionViewCell
             let indexPath = collectionView.indexPath(for: cell)
             let ghost = caughtsGhosts[(indexPath?.row)!]
             journalPageVc.ghost = ghost
         }
     }
-
+    
+//    func updateSearchResults(for searchController: UISearchController) {
+//        if searchController.searchBar.text! == "" {
+//            filteredGhosts = caughtsGhosts
+//        } else {
+//            filteredGhosts = caughtsGhosts.filter { $0.name?.lowercased().contains(searchController.searchBar.text!.lowercased()) ?? false }
+//        }
+//
+//        self.collectionView.reloadData()
+//
+//    }
+  
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class WinLoseViewController: UIViewController {
 
@@ -19,6 +20,7 @@ class WinLoseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpScreen()
+        createNotification()
         
         title2.adjustsFontSizeToFitWidth = true
         title2.frame.size.width = view.frame.width
@@ -43,7 +45,6 @@ class WinLoseViewController: UIViewController {
         button.center.y = text.center.y + button.frame.height*2
         
         
-
     }
     
     func setUpScreen(){
@@ -59,6 +60,36 @@ class WinLoseViewController: UIViewController {
         }
     }
     
-
+        func createNotification(){
+    
+            let notificationCenter = UNUserNotificationCenter.current()
+            notificationCenter.requestAuthorization(options: [.alert, .sound, .badge])
+            { (success, error) in
+                print("erro notification")
+            }
+    
+            let notificationTitle: String = "Hello Hunter 👻"
+            let notificationDescriptions = ["It's Ghost Time!", "There's a weird presence surround you, let's find out!", "There's something strange on your neighborhood!"]
+            let notificationDescription = notificationDescriptions.randomElement()
+    
+            // notification content
+            let content   = UNMutableNotificationContent()
+            content.title = notificationTitle
+            content.body  = notificationDescription ?? "It's Ghost Time!"
+            content.sound = UNNotificationSound.default
+    
+            // when notification will apear
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 43200, repeats: true)
+    
+            // request
+            let request = UNNotificationRequest(identifier: "notificationCenter", content: content, trigger: trigger)
+    
+            notificationCenter.add(request) { (error) in
+                print("erro notificacao")
+            }
+    
+            self.dismiss(animated: true, completion: nil)
+    
+        }
  
 }
