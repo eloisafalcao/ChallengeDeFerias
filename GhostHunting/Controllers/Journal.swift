@@ -9,14 +9,9 @@
 import UIKit
 import CoreData
 
-class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    @IBOutlet weak var searchView: UIView!
+class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     
     var caughtsGhosts: [GhostData] = []
-//    var filteredGhosts = [GhostData]()
-//
-//    let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var closeButton: UIButton!
@@ -29,17 +24,9 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         caughtsGhosts = getCaughtGhosts()
         
-        //Search Bar
-//        filteredGhosts = caughtsGhosts
-//
-//        searchController.searchResultsUpdater = self
-//        searchController.dimsBackgroundDuringPresentation = false
-//        definesPresentationContext = true
-//        searchView = searchController.searchBar
-//
-//
         //Autolayout
         closeButton.frame.size.height = view.frame.height/20
         closeButton.frame.size.width = closeButton.frame.height
@@ -51,21 +38,21 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         viewRoxa.center.x = view.center.x
         viewRoxa.frame.origin = view.frame.origin
         
-         journal.adjustsFontSizeToFitWidth = true
-         journal.frame.size.height = view.frame.height/20
-         journal.frame.origin.x = view.frame.origin.x + closeButton.frame.height/2
-         journal.frame.origin.y = closeButton.frame.origin.y + (closeButton.frame.height/2)*3
+        journal.adjustsFontSizeToFitWidth = true
+        journal.frame.size.height = view.frame.height/20
+        journal.frame.origin.x = view.frame.origin.x + closeButton.frame.height/2
+        journal.frame.origin.y = closeButton.frame.origin.y + (closeButton.frame.height/2)*3
         
         collectionView.frame.size.height = view.frame.height - viewRoxa.frame.size.height
         collectionView.frame.size.width = view.frame.width
         collectionView.center.x = view.center.x
         collectionView.frame.origin.y = viewRoxa.frame.origin.y + viewRoxa.frame.size.height
-    
+        
     }
-
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return caughtsGhosts.count
+        return caughtsGhosts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -81,18 +68,15 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         } else {
             cell.image.image = UIImage(named: ghost.imageFileName ?? " ")
             cell.skullw.image = UIImage(named: ghost.skullsClass ?? " ")
-            
-//            cell.image.image = UIImage(named: filteredGhosts[indexPath.row].imageFileName ?? " ")
-//            cell.skullw.image = UIImage(named: filteredGhosts[indexPath.row].skullsClass ?? " ")
         }
         
         return cell
     }
     
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "cellSegue" {
-            let journalPageVc = segue.destination as! JornalPageViewController
+            var journalPageVc = segue.destination as! JornalPageViewController
             let cell = sender as! UICollectionViewCell
             let indexPath = collectionView.indexPath(for: cell)
             let ghost = caughtsGhosts[(indexPath?.row)!]
@@ -100,15 +84,4 @@ class Journal: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
-//    func updateSearchResults(for searchController: UISearchController) {
-//        if searchController.searchBar.text! == "" {
-//            filteredGhosts = caughtsGhosts
-//        } else {
-//            filteredGhosts = caughtsGhosts.filter { $0.name?.lowercased().contains(searchController.searchBar.text!.lowercased()) ?? false }
-//        }
-//
-//        self.collectionView.reloadData()
-//
-//    }
-  
 }

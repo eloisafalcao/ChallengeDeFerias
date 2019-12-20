@@ -1,0 +1,49 @@
+[
+    {
+        "name": "Ghost of past bug",
+        "imageFileName": "1StarsGhost.png",
+        "skullsClass": "1Skulls",
+        "lifePercent": 0.2,
+        "ghostDescription": "This ghost especially haunts developers, is a bug that has been ignored and therefore returns in search of revenge.",
+        "nonSelectImage": "naoSelecionadoFantasma1.png",
+        "countCaught": 0
+    },
+    {
+        "name": "Boo",
+        "imageFileName": "2StarsGhost.png",
+        "skullsClass": "2Skulls",
+        "lifePercent": 0.15,
+        "ghostDescription": "Boo is just a little ghost who likes to play around, he's harmless but can be very annoying when upset.",
+        "nonSelectImage": "naoSelecionadoFantasma2.png",
+        "countCaught": 0
+    },
+    {
+        "name": "Cry Baby",
+        "imageFileName": "3StarsGhost.png",
+        "skullsClass": "3Skulls",
+        "lifePercent": 0.1,
+        "ghostDescription": "His cry can be heard for miles away, he haunts the sad people and feeds on their pain. Make no mistake about the size, this little guy can be very scary!",
+        "nonSelectImage": "naoSelecionadoFantasma4.png",
+        "countCaught": 0
+    },
+    {
+        "name": "Casper",
+        "imageFileName": "4StarsGhost.png",
+        "skullsClass": "4Skulls",
+        "lifePercent": 0.05,
+        "ghostDescription": "Despite the name, this ghost is not friendly at all, he is extremely needy and when he finds a haunting victim he never leaves.",
+        "nonSelectImage": "naoSelecionadoFantasma3.png",
+        "countCaught": 0
+    },
+    {
+        "name": "Poltergeist",
+        "imageFileName": "5StarsGhost.png",
+        "skullsClass": "5Skulls",
+        "lifePercent": 0.02,
+        "ghostDescription": "It carries the name of an entire category of haunts for the noise it makes, manifests itself in conjunction with the environment and so can be fatal!",
+        "nonSelectImage": "naoSelecionadoFantasma5.png",
+        "countCaught": 0
+    }
+]
+ 
+

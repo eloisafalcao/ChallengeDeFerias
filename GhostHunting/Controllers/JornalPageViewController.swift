@@ -19,16 +19,14 @@ class JornalPageViewController: UIViewController {
     @IBOutlet weak var ghostCount: UILabel!
     @IBOutlet weak var caughts: UILabel!
     
-    var ghost: GhostData? 
-    
-    
+    var ghost: GhostData?
+
     @IBAction func exitButton(_ sender: Any) {
          self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(ghost)
         
         if ghost?.countCaught == 0{
             ghostImage.image = UIImage(named: ghost?.nonSelectImage ?? "naoSelecionadoFantasma2.png")

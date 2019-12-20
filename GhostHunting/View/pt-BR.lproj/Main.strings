@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "Título da Missão"; ObjectID = "06S-wK-V21"; */
+"06S-wK-V21.text" = "Título da Missão";
+
+/* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse quilim dolore eu. "; ObjectID = "1JN-ff-gCs"; */
+"1JN-ff-gCs.text" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse quilim dolore eu. ";
+
+/* Class = "UILabel"; text = "Journal"; ObjectID = "1LF-gm-nLf"; */
+"1LF-gm-nLf.text" = "Diario";
+
+/* Class = "UILabel"; text = "Fantasminha Camarada"; ObjectID = "1yl-NH-iso"; */
+"1yl-NH-iso.text" = "Fantasminha Camarada";
+
+/* Class = "UILabel"; text = "Good Job!"; ObjectID = "3DM-fB-O4o"; */
+"3DM-fB-O4o.text" = "Bom Trabalho";
+
+/* Class = "UILabel"; text = "Caughts"; ObjectID = "5lN-Pu-6mj"; */
+"5lN-Pu-6mj.text" = "Pegos";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "KES-2q-4kq"; */
+"KES-2q-4kq.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "Vb9-X3-xfo"; */
+"Vb9-X3-xfo.normalTitle" = "Voltar";
+
+/* Class = "UILabel"; text = "You can check out your catch in the journal!"; ObjectID = "Xbs-14-C9C"; */
+"Xbs-14-C9C.text" = "Você consegue verificar sua captura no Diário!";
+
+/* Class = "UILabel"; text = "orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "; ObjectID = "eUG-VT-wp0"; */
+"eUG-VT-wp0.text" = "orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ";
+
+/* Class = "UILabel"; text = "20"; ObjectID = "pGM-31-ji5"; */
+"pGM-31-ji5.text" = "20";
+
+/* Class = "UILabel"; text = "Missions"; ObjectID = "y3Q-D9-61j"; */
+"y3Q-D9-61j.text" = "Missions";
+
+/* Class = "UILabel"; text = "00"; ObjectID = "yuY-89-Tmb"; */
+"yuY-89-Tmb.text" = "00";

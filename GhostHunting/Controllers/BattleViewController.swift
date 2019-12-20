@@ -8,8 +8,13 @@
 
 import UIKit
 import Foundation
+import CoreData
+
 
 class BattleViewController: UIViewController {
+
+    var ghost: GhostData?
+    var percent: Double?
     
     @IBOutlet weak var ghostImage: UIImageView?
     @IBOutlet weak var trap: UIImageView?
@@ -23,9 +28,6 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var exitBattleButton: UIButton!
     @IBOutlet weak var heart: UIImageView!
     @IBOutlet weak var backBar: UIImageView!
-    
-    var ghost: GhostData?
-    var percent: Double?
     
     var timerCount:Timer?
     var timeLeft = 20
@@ -54,7 +56,7 @@ class BattleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpBattle()
-        
+  
         //Autolayout
         exitBattleButton.frame.size.height = view.frame.height/20
         exitBattleButton.frame.size.width = exitBattleButton.frame.height
@@ -162,7 +164,7 @@ class BattleViewController: UIViewController {
             print("win game")
             self.performSegue(withIdentifier: "winSegue", sender: self)
         }
-        
+
         updateCount(name: ghostName.text ?? "Ghost!")
     
     }

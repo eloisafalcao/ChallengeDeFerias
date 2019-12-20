@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  GhostHunting
+
+  Created by Eloisa Falcão on 07/08/19.
+  Copyright © 2019 Eloisa Falcão. All rights reserved.
+*/
+"Ghost of past bug" = "Fantasma do bug passado";
+"Boo" =  "Bú";
+"Cry Baby" = "Bebê chorão";
+"Casper" = "Gasparzinho";
+"Poltergeist" =  "Poltergeist";
+
+"Ghost of past bug Description" =  "Esse fantasma caça especialmente desenvolvedores, é um bug que foi ignorado no passado e retornou em busca de vingança";
+"Boo Description" = "Bú é só um fantasminha que gosta de brincar por aí, ele é inofensivo, mas pode ser bem irritante quando se chateia";
+"Cry Baby Description" = "Seu choro pode ser escutado a Km de distância. ele caça pessoas tristes e se alimenta da sua dor. Não se deixe enganar pelo tamanho, esse carinha pode ser bem assutador!";
+"Casper Description" = "Apesar do nome, esse fantasma não é nada camarada, ele é extremamente carente e quando ele encontra uma vítima para assombrar ele nunca a abandona";
+"Poltergeist Description" = "Ele carrega o nome de uma categoria inteira de assombrações pelos barulhos que faz, por se manifestar em conjunto com o ambiente ele pode ser fatal!";
+
+"Good Job" = "Bom trabalho!";
+"You can check out your catch in the journal!" = "Você pode conferir sua captura no Diário!";
+
+"Ugh, Goop!" = "Ah, meleca!";
+"It ran away" = "Ele fugiu!";

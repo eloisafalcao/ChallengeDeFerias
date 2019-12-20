@@ -18,11 +18,10 @@ extension GhostData {
     }
 
     @NSManaged public var countCaught: Int16
-    @NSManaged public var imageFileName: String?
+    @NSManaged public var ghostDescription: String
+    @NSManaged public var imageFileName: String
     @NSManaged public var lifePercent: Double
-    @NSManaged public var name: String?
-    @NSManaged public var skullsClass: String?
-    @NSManaged public var ghostDescription: String?
-    @NSManaged public var nonSelectImage: String?
-    
+    @NSManaged public var name: String
+    @NSManaged public var nonSelectImage: String
+    @NSManaged public var skullsClass: String
 }

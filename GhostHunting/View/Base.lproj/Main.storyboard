@@ -211,7 +211,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título da Missão" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06S-wK-V21">
-                                                    <rect key="frame" x="15" y="11" width="338" height="52"/>
+                                                    <rect key="frame" x="15" y="11" width="337.5" height="52"/>
                                                     <fontDescription key="fontDescription" name="pixelmix" family="pixelmix" pointSize="30"/>
                                                     <color key="textColor" red="0.9616658092" green="0.92140680549999998" blue="0.3253019452" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -310,14 +310,6 @@
                                     <segue destination="VQW-Mc-C5r" kind="show" id="vqU-5n-NBg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KnV-Gk-thb">
-                                <rect key="frame" x="196" y="787" width="189" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="buttonSettings"/>
-                                <connections>
-                                    <segue destination="JuL-HF-KdS" kind="show" id="ZDh-RJ-zPD"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -326,7 +318,6 @@
                         <outlet property="buttonCenter" destination="Vcz-Ip-QGf" id="AQH-Wk-sqn"/>
                         <outlet property="journalButton" destination="SRz-Up-60D" id="qxk-A0-HJI"/>
                         <outlet property="mapView" destination="QsK-OA-tPb" id="l18-n9-D0v"/>
-                        <outlet property="tasksButton" destination="KnV-Gk-thb" id="RAy-Bp-LYC"/>
                         <outlet property="tooFarAlert" destination="B4Z-ig-nSm" id="14j-y0-dlJ"/>
                         <outlet property="tooFarView" destination="B4Z-ig-nSm" id="6WO-Ut-EgQ"/>
                         <outlet property="viewRoxa" destination="GJE-GY-AOc" id="Fw9-6f-cGb"/>
@@ -364,11 +355,6 @@
                                             <action selector="closeButtonAction:" destination="VQW-Mc-C5r" eventType="touchUpInside" id="PI7-E6-OHH"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GI2-TJ-3Jo" userLabel="Searchview">
-                                        <rect key="frame" x="0.0" y="161" width="1024" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1947064996" green="0.19754263759999999" blue="0.39217638970000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
@@ -445,7 +431,6 @@
                         <outlet property="closeButton" destination="k3E-lh-cBG" id="FIc-Jj-saH"/>
                         <outlet property="collectionView" destination="B5k-ES-edk" id="Gsx-3a-0tB"/>
                         <outlet property="journal" destination="1LF-gm-nLf" id="mOO-nq-Ny4"/>
-                        <outlet property="searchView" destination="GI2-TJ-3Jo" id="U95-0S-NdO"/>
                         <outlet property="viewRoxa" destination="saB-qr-I0D" id="7wW-fb-r0j"/>
                     </connections>
                 </viewController>
@@ -546,7 +531,6 @@
         <image name="buttonCenter" width="189" height="180"/>
         <image name="buttonClose" width="102" height="100"/>
         <image name="buttonJournal" width="189" height="180"/>
-        <image name="buttonSettings" width="189" height="180"/>
         <image name="checkCheck" width="101" height="101"/>
         <image name="exitButton" width="80" height="91"/>
         <image name="heart" width="171" height="161"/>

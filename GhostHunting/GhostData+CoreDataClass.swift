@@ -11,6 +11,6 @@ import Foundation
 import CoreData
 
 @objc(GhostData)
-public class GhostData: NSManagedObject {
-
+public class GhostData: NSManagedObject{
+    
 }

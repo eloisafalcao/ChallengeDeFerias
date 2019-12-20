@@ -20,26 +20,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var viewRoxa: UIView!
     @IBOutlet weak var tooFarView: UIImageView!
     @IBOutlet weak var tasksButton: UIButton!
-    
+
     var ghostArray: [GhostData] = []
     var selectedGhost: GhostData?
-    
+
     @IBAction func buttonCenterAction(_ sender: Any) {
         centerUserLocation()
         tooFarAlert.isHidden = true
     }
-    
+
     var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.locationManager.delegate = self
-        self.mapView.delegate = self 
+        self.mapView.delegate = self
+        
         ghostArray = bringAllTheGhosts()
         checkAuthorizationStatus()
         addAnnotations()
         centerUserLocation()
         pressedButtons()
+        createNotification()
         tooFarAlert.isHidden = true
         
         
@@ -52,79 +55,107 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         viewRoxa.frame.size.width = view.frame.width
         viewRoxa.center.x = view.center.x
         viewRoxa.center.y = view.frame.height - viewRoxa.frame.height/2
-
+        
         tooFarView.frame.size.height = view.frame.height/9
         tooFarView.frame.size.width = view.frame.width/2
         tooFarView.center.x = view.center.x
         tooFarView.center.y = viewRoxa.frame.height
         
-        journalButton.frame.size.height = view.frame.height/7
+        journalButton.frame.size.height = view.frame.height/6
         journalButton.frame.size.width =  journalButton.frame.height
-        journalButton.center.x = view.center.x
+        journalButton.center.x = view.center.x - (journalButton.frame.width/2 + 8)
         journalButton.center.y = viewRoxa.center.y
         
         buttonCenter.frame.size.height = journalButton.frame.height
         buttonCenter.frame.size.width = journalButton.frame.height
-        buttonCenter.center.x = view.center.x + (journalButton.frame.width*1.1)
+        buttonCenter.center.x = view.center.x + (journalButton.frame.width/2 + 8)
         buttonCenter.center.y = viewRoxa.center.y
         
-        tasksButton.frame.size.height = journalButton.frame.height
-        tasksButton.frame.size.width = journalButton.frame.height
-        tasksButton.center.x = view.center.x - (journalButton.frame.width*1.1)
-        tasksButton.center.y = viewRoxa.center.y
     }
     
     
-    func checkAuthorizationStatus(){
-        switch CLLocationManager.authorizationStatus() {
-        case .notDetermined:
-            print("notDetermined")
-            locationManager.requestWhenInUseAuthorization()
-        case .denied, .restricted:
-            print("denied")
-            let alertController = UIAlertController(title: "Hello Hunter 👻", message: "You need to allow your location in settings to start searching for ghosts!", preferredStyle: .alert)
-            let actionOk = UIAlertAction(title: "Cancel",
-                                         style: .default,
-                                         handler: nil)
-            
-            let actionSettings = UIAlertAction(title: "Settings", style: .default){ (_) -> Void in
-                
-                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-                    return
-                }
-                
-                if UIApplication.shared.canOpenURL(settingsUrl) {
-                    UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-                        print("Settings opened: \(success)") // Prints true
-                    })
-                }
-                
-            }
-            
-            alertController.addAction(actionOk)
-            alertController.addAction(actionSettings)
-
-            self.present(alertController, animated: true, completion: nil)
-            
-        case .authorizedWhenInUse, .authorizedAlways:
-            mapView.showsUserLocation = true
-            locationManager.startUpdatingLocation()
-            centerUserLocation()
-        @unknown default:
-            print("unknown")
+    func createNotification(){
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge])
+        { (success, error) in
+            print("erro notification")
         }
+        
+        let notificationTitle: String = "Hello Hunter 👻"
+        let notificationDescriptions = ["It's Ghost Time!", "There's a weird presence surround you, let's find out!", "There's something strange on your neighborhood!"]
+        let notificationDescription = notificationDescriptions.randomElement()
+        
+        // notification content
+        let content   = UNMutableNotificationContent()
+        content.title = notificationTitle
+        content.body  = notificationDescription ?? "It's Ghost Time!"
+        content.sound = UNNotificationSound.default
+        
+        // when notification will apear
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 43200, repeats: true)
+        
+        // request
+        let request = UNNotificationRequest(identifier: "notificationCenter", content: content, trigger: trigger)
+        
+        notificationCenter.add(request) { (error) in
+            print("erro notificacao")
+        }
+        
+        self.dismiss(animated: true, completion: nil)
         
     }
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-         checkAuthorizationStatus()
-    }
+    
+        func checkAuthorizationStatus(){
+            switch CLLocationManager.authorizationStatus() {
+            case .notDetermined:
+                print("notDetermined")
+                locationManager.requestWhenInUseAuthorization()
+            case .denied, .restricted:
+                print("denied")
+                let alertController = UIAlertController(title: "Hello Hunter 👻", message: "You need to allow your location in settings to start searching for ghosts!", preferredStyle: .alert)
+                let actionOk = UIAlertAction(title: "Cancel",
+                                             style: .default,
+                                             handler: nil)
+                
+                let actionSettings = UIAlertAction(title: "Settings", style: .default){ (_) -> Void in
+                    
+                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                        return
+                    }
+                    
+                    if UIApplication.shared.canOpenURL(settingsUrl) {
+                        UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                            print("Settings opened: \(success)") // Prints true
+                        })
+                    }
+                    
+                }
+                
+                alertController.addAction(actionOk)
+                alertController.addAction(actionSettings)
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            case .authorizedWhenInUse, .authorizedAlways:
+                mapView.showsUserLocation = true
+                locationManager.startUpdatingLocation()
+                centerUserLocation()
+                
+            @unknown default:
+                print("unknown")
+            }
+            
+        }
+
+    
     
     func centerUserLocation(){
-            guard let coordinate = locationManager.location?.coordinate else {return}
-            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
-            self.mapView.setRegion(region, animated: true)
-      
+        guard let coordinate = locationManager.location?.coordinate else {return}
+        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+        self.mapView.setRegion(region, animated: true)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -147,32 +178,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         let region = MKCoordinateRegion(center: view.annotation!.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
         self.mapView.setRegion(region, animated: false)
-   
-       if let coordinate = locationManager.location?.coordinate {
-        if mapView.visibleMapRect.contains(MKMapPoint(coordinate)){
-              print("touch ghost")
-            let ghost = (view.annotation as! GhostAnnotation).ghost
-            self.selectedGhost = ghost
-            self.performSegue(withIdentifier: "showBattle", sender: self)
-            print("present battleView")
+        
+        if let coordinate = locationManager.location?.coordinate {
+            if mapView.visibleMapRect.contains(MKMapPoint(coordinate)){
+                print("touch ghost")
+                let ghost = (view.annotation as! GhostAnnotation).ghost
+                self.selectedGhost = ghost
+                self.performSegue(withIdentifier: "showBattle", sender: self)
+                print("present battleView")
+                
+                
+            } else {
+                tooFarAlert.isHidden = false
+                print("2 far")
+            }
             
-            
-        } else {
-            tooFarAlert.isHidden = false
-            print("2 far")
         }
         
-        }
         
-      
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-
+        
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
-
+        
         if annotation is MKUserLocation {
-           annotationView.image = UIImage(named: "userLocation")
+            annotationView.image = UIImage(named: "userLocation")
         } else {
             annotationView.image = UIImage(named: "pinGhost")
         }
@@ -185,20 +216,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         return annotationView
     }
     
-    
     func addAnnotations(){
-            Timer.scheduledTimer(withTimeInterval: Double(arc4random_uniform(10)), repeats: true) { (timer) in
-                let randomGhost = Int(arc4random_uniform(UInt32(self.ghostArray.count)))
-                let ghost = self.ghostArray[randomGhost]
-                
+            let timeIntervals = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        Timer.scheduledTimer(withTimeInterval: TimeInterval(timeIntervals.randomElement()!), repeats: true) { (timer) in
+            let randomGhost = Int(arc4random_uniform(UInt32(self.ghostArray.count)))
+            let ghost = self.ghostArray[randomGhost]
+
                 guard let coordinate = self.locationManager.location?.coordinate else {return}
                 let annotation = GhostAnnotation(coordinate: coordinate, ghost: ghost)
                 annotation.coordinate.latitude += (Double(arc4random_uniform(1000)) - 500)/300000.0
                 annotation.coordinate.longitude += (Double(arc4random_uniform(1000)) - 500)/300000.0
-                
-//                print("add annotation")
+
                 self.mapView.addAnnotation(annotation)
-        
+
         }
     }
 
